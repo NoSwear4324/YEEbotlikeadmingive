@@ -49,7 +49,7 @@ const CONFIG = {
 };
 
 const MINI_CONFIGS = {
-    '!community': {
+    '-community': {
         name: 'Community',
         minReward: 5,
         maxReward: 24,
