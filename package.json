@@ -1,13 +1,12 @@
 {
-  "name": "rbx-giveaway-bot",
+  "name": "botss",
   "version": "1.0.0",
   "description": "",
-  "main": "start.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node start.js"
+    "start": "node bot.js"
   },
   "dependencies": {
-    "discord.js": "^14.14.1",
-    "dotenv": "^16.4.5"
+    "discord.js": "^14.26.2"
   }
 }
