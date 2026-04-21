@@ -55,9 +55,9 @@ const MINI_CONFIGS = {
         maxReward: 24,
         color: 0x5865F2,
         emoji: '👍',
-        allowedRole: '1480483328409731082',
-        allowedChannel: '1495124439476473936',
-        pingRole: '1492973460400640020',
+        allowedRole: '1496136262350803056',
+        allowedChannel: '1496135112494944478',
+        pingRole: '1496136262350803056',
         robuxEmoji: '1492973460400640020'
     },
     '!plus': {
