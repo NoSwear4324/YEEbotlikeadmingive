@@ -1,0 +1,10 @@
+node_modules/
+config.json
+.env
+.qwen/
+eee.txt
+bot.py.txt
+config.json
+Ссылка на бота моего.url
+.qwen/settings.json
+.qwen/settings.json.orig
