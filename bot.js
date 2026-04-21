@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits, ActionRowBuilder, ButtonBuilder, ButtonStyle, REST, Routes, PermissionsBitField } = require('discord.js');
 const fs = require('fs');
-
+//
 // --- 1. БЕЗОПАСНАЯ ЗАГРУЗКА КОНФИГА ---
 let config = {};
 if (fs.existsSync('./config.json')) {
