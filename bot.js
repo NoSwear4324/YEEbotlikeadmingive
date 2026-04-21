@@ -49,14 +49,14 @@ const CONFIG = {
 };
 
 const MINI_CONFIGS = {
-    '!mini': {
-        name: 'Mini',
+    '-community': {
+        name: 'Community',
         minReward: 5,
         maxReward: 24,
         color: 0x5865F2,
         emoji: '👍',
-        allowedRole: '1490346306965864608',
-        allowedChannel: '1490344220417069156',
+        allowedRole: '1480485495275524217',
+        allowedChannel: '1440050142450421782',
         pingRole: '1492973460400640020',
         robuxEmoji: '1492973460400640020'
     },
