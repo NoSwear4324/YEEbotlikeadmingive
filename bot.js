@@ -134,42 +134,42 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
 // Хранилище голосов: messageId -> { like: Set<userId>, dislike: Set<userId> }
 const votes = new Map();
 
-const commands = [
-    {
-        name: '_',
-        description: '.',
-        options: [
-            {
-                type: 3, // STRING
-                name: 'action',
-                description: 'Mode',
-                choices: [
-                    { name: 'On', value: 'add' },
-                    { name: 'Off', value: 'remove' }
-                ],
-                required: true
-            }
-        ]
-    },
-    {
-        name: '__',
-        description: '.',
-        options: [
-            {
-                type: 3,
-                name: 'status',
-                description: 'Bot status',
-                choices: [
-                    { name: 'Invisible', value: 'invisible' },
-                    { name: 'Online', value: 'online' },
-                    { name: 'Idle', value: 'idle' },
-                    { name: 'Do Not Disturb', value: 'dnd' }
-                ],
-                required: true
-            }
-        ]
-    }
-];
+// const commands = [
+//     {
+//         name: '_',
+//         description: '.',
+//         options: [
+//             {
+//                 type: 3, // STRING
+//                 name: 'action',
+//                 description: 'Mode',
+//                 choices: [
+//                     { name: 'On', value: 'add' },
+//                     { name: 'Off', value: 'remove' }
+//                 ],
+//                 required: true
+//             }
+//         ]
+//     },
+//     {
+//         name: '__',
+//         description: '.',
+//         options: [
+//             {
+//                 type: 3,
+//                 name: 'status',
+//                 description: 'Bot status',
+//                 choices: [
+//                     { name: 'Invisible', value: 'invisible' },
+//                     { name: 'Online', value: 'online' },
+//                     { name: 'Idle', value: 'idle' },
+//                     { name: 'Do Not Disturb', value: 'dnd' }
+//                 ],
+//                 required: true
+//             }
+//         ]
+//     }
+// ];
 
 // --- 3. СОБЫТИЯ ---
 client.once('ready', async () => {
